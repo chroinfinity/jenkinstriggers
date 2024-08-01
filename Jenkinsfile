@@ -1,10 +1,10 @@
+/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
+    agent { docker { image 'python:3.12.4-alpine3.20' } }
     stages {
-        stage ('Echo Complete'){
+        stage('build') {
             steps {
-                sh 'echo "Build completed."'
-
+                sh 'python --version'
             }
         }
     }
